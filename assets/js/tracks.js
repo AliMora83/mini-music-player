@@ -3,7 +3,8 @@ export const tracks = [
         "name": "Track 1 - Clicks",
         "artist": "Nama Language",
         "cover": "assets/nama.png",
-        "source": "https://firebasestorage.googleapis.com/v0/b/nama-language.appspot.com/o/track1.mp3?alt=media&token=08328573-9921-4abd-ac33-28b68bb73d9a"
+        "source": "https://firebasestorage.googleapis.com/v0/b/nama-language.appspot.com/o/track1.mp3?alt=media&token=08328573-9921-4abd-ac33-28b68bb73d9a",
+        "content": "The “│” click sound is made by breaking a slight suction that is created by just placing the very tip of the tongue behind the upper front teeth; where they meet the gums; then (keeping both lips slightly apart) draw the tip of the tongue away from the teeth."
     },
     {
         "name": "Track 2 - Vowels",
