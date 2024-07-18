@@ -16,6 +16,7 @@ const playBtn = document.querySelector(".play"),
     title = document.querySelector(".audio-title"),
     singer = document.querySelector(".audio-track"),
     content = document.querySelector(".text-info");
+    // textTitle = document.querySelector(".text-title");
 
 // Initial state values
 let audio = null,
@@ -33,6 +34,7 @@ img.src = currentTrack.cover;
 title.innerText = currentTrack.name;
 singer.innerText = currentTrack.artist;
 content.innerText = currentTrack.content;
+// textTitle.innerText = currentTrack.name;
 
 playBtn.addEventListener('click', () => {
     if (audio.paused) {
@@ -74,6 +76,7 @@ skipForward.addEventListener('click', () => {
     title.innerText = currentTrack.name;
     singer.innerText = currentTrack.artist;
     content.innerText = currentTrack.content;
+    // textTitle.innerText = currentTrack.name;
 
     barWidth = 0;
     progressBar.style.width = `${barWidth}%`;
@@ -106,6 +109,7 @@ skipBack.addEventListener('click', () => {
     title.innerText = currentTrack.name;
     singer.innerText = currentTrack.artist;
     content.innerText = currentTrack.content;
+    // textTitle.innerText = currentTrack.name;
 
     barWidth = 0;
     progressBar.style.width = `${barWidth}%`;
@@ -166,7 +170,7 @@ audio.onended = function () { };
 
 // Animations
 TweenMax.from('.img', 4, { rotation: "+=360", transformOrigin: "50% 50%", ease: Linear.easeNone, repeat: -1 });
-gsap.from("body, h1, .audio-img, .audio-title, .audio-content, .audio-singer, .audio-btns", {
+gsap.from("body, h1, .audio-img, .audio-title, .audio-content, .text-title, .text-info, .audio-singer, .audio-btns", {
     opacity: 0,
     duration: 2,
     delay: 1.5,

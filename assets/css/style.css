@@ -11,7 +11,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background-color: #2d2464;
+  background-color: #212121;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -38,12 +38,21 @@ img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; /* Center the containers horizontally */
+  justify-content: center;
 }
 
-.audio-container, .text-container {
+.text-container {
   width: 30%;
-  height: 100vh; /* Ensure full height if needed */
+  height: 70vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start; 
+}
+
+.audio-container {
+  width: 30%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,11 +65,6 @@ img {
   height: 200px;
 }
 
-h1 {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-}
-
 .audio-img-wrapper {
   display: flex;
   align-items: center;
@@ -70,7 +74,7 @@ h1 {
 }
 
 .audio-img {
-  border: 6px solid #9664ff;
+  border: 6px solid #676767;
   padding: 10px;
   border-radius: 100%;
   text-align: center;
@@ -83,7 +87,7 @@ h1 {
 h1 {
   margin-top: 1rem;
   font-size: 1.5rem;
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding: 30px;
 }
 
@@ -91,6 +95,7 @@ h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
   text-transform: capitalize;
+  padding-bottom: 10px;
 }
 
 h6 {
@@ -98,6 +103,13 @@ h6 {
   margin-top: 0.5rem;
   font-weight: 400;
   color: #bcbcbc;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 400;
+  color: #fafafa;
 }
 
 .audio-progress {
@@ -168,9 +180,10 @@ h6 {
 }
 
 .play {
-  background: linear-gradient(to right, #425ef0, #7854fb);
+  background: linear-gradient(to right, #212121, #2f2f2f);
   text-align: center;
   border-radius: 100%;
   padding: 1rem 1.2rem;
-  /* padding-left: 1.5rem; */
+  border-style: solid;
+  border-color: gray;
 }

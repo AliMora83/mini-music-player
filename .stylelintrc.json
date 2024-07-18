@@ -1,5 +1,5 @@
 {
-    "ignoreFiles": ["**/*.js"],
+    "ignoreFiles": ["**/*.js", "**/*.css"],
     "extends": "stylelint-config-standard",
     "rules": {
       "indentation": 2,
