@@ -64,13 +64,12 @@ img {
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: auto; 
   cursor: pointer;
 }
 
 .audio-img {
-  width:120px;
-  height: 120px;
+  width:200px;
+  height: 200px;
   border: 2px solid #676767;
   padding: 10px;
   border-radius: 100%;
