@@ -15,8 +15,9 @@ const playBtn = document.querySelector(".play"),
     img = document.querySelector('.img'),
     title = document.querySelector(".audio-title"),
     singer = document.querySelector(".audio-track"),
-    content = document.querySelector(".text-info");
-    // textTitle = document.querySelector(".text-title");
+    content = document.querySelector(".text-info"),
+    header = document.querySelector(".text-title");
+
 
 // Initial state values
 let audio = null,
@@ -24,8 +25,8 @@ let audio = null,
     duration = null,
     currentTime = null,
     isTimerPlaying = false,
-    currentTrackIndex = 0,
-    currentTrack = tracks[0];
+    currentTrack = tracks[0],
+    currentTrackIndex = 0; // Add currentTrackIndex
 
 // Set initial state values
 audio = new Audio();
@@ -34,15 +35,18 @@ img.src = currentTrack.cover;
 title.innerText = currentTrack.name;
 singer.innerText = currentTrack.artist;
 content.innerText = currentTrack.content;
-// textTitle.innerText = currentTrack.name;
+header.innerText = currentTrack.textTitle;
 
 playBtn.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
         isTimerPlaying = true;
+       
+        gsap.from('.img', { rotation: "+=360", transformOrigin: "50% 50%", ease: "linear", repeat: -1, duration: 4 });
     } else {
         audio.pause();
         isTimerPlaying = false;
+        gsap.killTweensOf(".img");
     }
 });
 
@@ -75,8 +79,8 @@ skipForward.addEventListener('click', () => {
     img.src = currentTrack.cover;
     title.innerText = currentTrack.name;
     singer.innerText = currentTrack.artist;
-    content.innerText = currentTrack.content;
-    // textTitle.innerText = currentTrack.name;
+    content.innerHTML = currentTrack.content.replace(/\n\s+/g, '<br>'); 
+    header.innerText = currentTrack.textTitle;
 
     barWidth = 0;
     progressBar.style.width = `${barWidth}%`;
@@ -108,8 +112,9 @@ skipBack.addEventListener('click', () => {
     img.src = currentTrack.cover;
     title.innerText = currentTrack.name;
     singer.innerText = currentTrack.artist;
-    content.innerText = currentTrack.content;
-    // textTitle.innerText = currentTrack.name;
+    content.innerHTML = currentTrack.content.replace(/\n\s+/g, '<br>'); 
+    header.innerText = currentTrack.textTitle;
+
 
     barWidth = 0;
     progressBar.style.width = `${barWidth}%`;
@@ -157,20 +162,36 @@ audio.ontimeupdate = function () {
         if (isTimerPlaying) {
             playIcon.classList.remove('fa-play');
             playIcon.classList.add('fa-pause');
-
+            gsap.from('.img', { rotation: "+=360", transformOrigin: "50% 50%", ease: "linear", repeat: -1, duration: 4 });
 
         } else {
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
+            gsap.killTweensOf(".img");
         }
     }
 };
 
-audio.onended = function () { };
+audio.onended = function () {
+    if (currentTrackIndex < tracks.length - 1) {
+        currentTrackIndex++;
+    } else {
+        currentTrackIndex = 0;
+    }
+    currentTrack = tracks[currentTrackIndex];
+
+    audio.src = currentTrack.source;
+    img.src = currentTrack.cover;
+    title.innerText = currentTrack.name;
+    singer.innerText = currentTrack.artist;
+    content.innerHTML = currentTrack.content.replace(/\n\s+/g, '<br>');
+    header.innerText = currentTrack.textTitle;
+    audio.play();
+};
 
 // Animations
-TweenMax.from('.img', 4, { rotation: "+=360", transformOrigin: "50% 50%", ease: Linear.easeNone, repeat: -1 });
-gsap.from("body, h1, .audio-img, .audio-title, .audio-content, .text-title, .text-info, .audio-singer, .audio-btns", {
+// TweenMax.from('.img', 4, { rotation: "+=360", transformOrigin: "50% 50%", ease: Linear.easeNone, repeat: -1 });
+gsap.from("body, h1, .audio-img, .audio-title, .audio-content, .text-header, .text-info, .audio-singer, .audio-btns", {
     opacity: 0,
     duration: 2,
     delay: 1.5,
