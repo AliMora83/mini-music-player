@@ -68,7 +68,12 @@ export const tracks = [
         "artist": "Nama Language",
         "cover": "assets/nama.png",
         "source": "https://firebasestorage.googleapis.com/v0/b/nama-language.appspot.com/o/track4.mp3?alt=media&token=4245b34f-85aa-40ad-8bf9-189fdfd6c99e",
-        "content": `More content coming soon.
+        "content": `
+        Nouns occur in singular, dual and plural form.
+        Please note!
+        -s indicates the feminine singular, twofold ends with –ra, and more with –di.
+        -b indicates the masculine singular, twofold ends with –kha, and more with –gu.
+        -I indicate no gender, plural ends with n.
         `
     },
     {
